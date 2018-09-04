@@ -1,0 +1,29 @@
+<form class="form">
+  <mat-form-field class="form-field">
+    <input matInput
+           placeholder="Search movie"
+           class="search-field"
+           [matAutocomplete]="autoComplete"
+           [formControl]="searchQuery">
+    <mat-autocomplete #autoComplete="matAutocomplete"
+                      (optionSelected)="optionSelected($event)">
+      <mat-option *ngFor="let movie of autoCompleteData"
+                  class="autocomplete-item"
+                  [value]="movie.Title">
+        <img *ngIf="movie.Poster !== 'N/A'"
+             [src]="movie.Poster"
+             [alt]="movie.Title"
+             width="20"
+             height="20">
+        <span>{{movie.Title}}</span>
+        <span>{{movie.Year}}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<div class="movie-card">
+  <app-movie-card *ngFor="let movie of moviesList"
+                  [movie]="movie"
+                  [isMainPage]="true"></app-movie-card>
+</div>

@@ -1,0 +1,30 @@
+<mat-card *ngIf="movie">
+  <mat-card-header>
+    <mat-card-title>Title: {{movie.Title}}</mat-card-title>
+    <mat-card-subtitle>Year: {{movie.Year}}</mat-card-subtitle>
+  </mat-card-header>
+  <img *ngIf="movie.Poster !== 'N/A'"
+       [src]="movie.Poster"
+       [alt]="movie.Title"
+       mat-card-image>
+  <mat-card-content>
+    <p *ngIf="movie.Title">Title: {{movie.Title}}</p>
+    <p *ngIf="movie.Year">Year: {{movie.Year}}</p>
+    <p *ngIf="movie.Country">Country: {{movie?.Country}}</p>
+    <p *ngIf="movie.Genre">Genre: {{movie?.Genre}}</p>
+    <p *ngIf="movie.Director">Director: {{movie?.Director}}</p>
+    <p *ngIf="movie.Actors">Actors: {{movie?.Actors}}</p>
+    <p *ngIf="movie.imdbRating">Imdb rating: {{movie?.imdbRating}}</p>
+    <p *ngIf="movie.Released">Released: {{movie?.Released}}</p>
+    <p *ngIf="movie.Plot">Plot: {{movie?.Plot}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="isMainPage"
+            mat-raised-button (click)="moreInfo()">More Info</button>
+    <button mat-raised-button
+            color="primary"
+            [disabled]="isPending"
+            (click)="isSaved ? deleteMovie(movie) : saveMovie(movie)">{{isSaved ? 'Delete' : 'Save'}}
+    </button>
+  </mat-card-actions>
+</mat-card>

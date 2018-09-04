@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 400px;
+
+  .form-field {
+    width: 100%;
+  }
+
+  .search-field {
+    width: 300px;
+  }
+
+  .autocomplete-item {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.movie-card {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 24px;
+}

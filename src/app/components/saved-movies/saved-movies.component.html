@@ -1,0 +1,8 @@
+<div *ngIf="savedMovies && savedMovies.length > 0"
+     class="movie-card">
+  <app-movie-card *ngFor="let movie of savedMovies"
+                  [movie]="movie"
+                  (movieDeleted)="onDeleteMovie($event)"></app-movie-card>
+</div>
+
+<p *ngIf="!savedMovies || savedMovies.length === 0">No saved movies</p>
