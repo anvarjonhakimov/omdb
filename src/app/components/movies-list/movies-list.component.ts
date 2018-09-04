@@ -35,7 +35,6 @@ export class MoviesListComponent implements OnInit, OnDestroy {
   autoCompleteData: IMovieShortSummaryInterface[];
   searchQuery: FormControl = new FormControl();
   moviesList: IMovieShortSummaryInterface[];
-  notFound: boolean;
 
   /**
    * Creates an instance of MoviesListComponent
@@ -74,7 +73,6 @@ export class MoviesListComponent implements OnInit, OnDestroy {
         tap((value: string) => {
           if (value.length === 0) {
             this.autoCompleteData = null;
-            this.notFound = false;
           }
         }),
         filter((value: string) => value.length > 2),
